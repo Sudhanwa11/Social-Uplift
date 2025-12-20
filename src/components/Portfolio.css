@@ -1,0 +1,229 @@
+/* Portfolio Section Styles */
+
+/* Infinite Scroller Styles */
+.pf-scroll-wrapper {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    position: relative;
+}
+
+.pf-scroll-wrapper:hover .pf-scroll-track {
+    animation-play-state: paused;
+}
+
+.pf-scroll-track {
+    display: flex;
+    gap: 32px;
+    animation: scrollLeft 10s linear infinite;
+    will-change: transform;
+    width: max-content;
+}
+
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Portfolio Card Wrapper */
+.portfolio-card-wrapper {
+    min-width: 320px;
+    max-width: 340px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+/* Portfolio Card */
+.portfolio-card {
+    background-color: rgba(26, 26, 26, 0.8);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(248, 200, 220, 0.2);
+}
+
+/* Card 3D Enhancements */
+.portfolio-card .w-full.h-full.flex.flex-col.rounded-lg.overflow-hidden {
+    border-radius: 10px;
+}
+
+/* Portfolio Image Container */
+.portfolio-img {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-img img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+/* Specific client background handling */
+.portfolio-img[style*="background-color: #f8c8dc"] {
+    background-color: #f8c8dc !important; /* Lumos Cafe */
+}
+
+.portfolio-img[style*="background-color: #0f1a2e"] {
+    background-color: #0f1a2e !important; /* How Patio */
+}
+
+.portfolio-img[style*="background-color: #5227FF"] {
+    background-color: #5227FF !important; /* Infinite Proptech */
+}
+
+.portfolio-img[style*="background-color: white"] {
+    background-color: white !important; /* Default white background */
+}
+
+/* Portfolio Content */
+.portfolio-content {
+    padding: 25px;
+    background-color: rgba(26, 26, 26, 0.9);
+    border-radius: 0 0 10px 10px;
+}
+
+.portfolio-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--secondary);
+    font-weight: 700;
+}
+
+.portfolio-content p {
+    color: var(--gray);
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Testimonial section (if used in portfolio cards) */
+.testimonial {
+    background-color: rgba(248, 200, 220, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    position: relative;
+}
+
+.testimonial::before {
+    content: '"';
+    font-size: 3rem;
+    color: var(--primary);
+    opacity: 0.5;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+}
+
+.testimonial p {
+    font-style: italic;
+    margin-bottom: 10px;
+    color: var(--gray);
+}
+
+.client {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .portfolio-card-wrapper {
+        min-width: 280px;
+        max-width: 300px;
+    }
+    
+    .pf-scroll-track {
+        gap: 24px;
+        animation-duration: 8s;
+    }
+    
+    .portfolio-img {
+        height: 180px;
+    }
+    
+    .portfolio-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .portfolio-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .portfolio-card-wrapper {
+        min-width: 260px;
+        max-width: 280px;
+    }
+    
+    .pf-scroll-track {
+        gap: 20px;
+    }
+    
+    .portfolio-img {
+        height: 160px;
+    }
+    
+    .portfolio-content h3 {
+        font-size: 1.1rem;
+    }
+    
+    .portfolio-content p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Pause animation on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .pf-scroll-track {
+        animation: none;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .pf-scroll-wrapper {
+        overflow-x: auto;
+    }
+}
+
+/* Smooth hover transitions */
+.portfolio-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Custom scrollbar for the track on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .pf-scroll-wrapper::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .pf-scroll-wrapper::-webkit-scrollbar-track {
+        background: rgba(248, 200, 220, 0.1);
+        border-radius: 3px;
+    }
+    
+    .pf-scroll-wrapper::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 3px;
+    }
+}

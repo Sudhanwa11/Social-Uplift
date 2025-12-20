@@ -1,0 +1,272 @@
+/* Footer Styles */
+footer {
+    background-color: var(--dark);
+    color: white;
+    padding: 60px 0 30px;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-about {
+    max-width: 300px;
+}
+
+.footer-logo {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: var(--primary);
+    position: relative;
+    display: inline-block;
+}
+
+.footer-logo::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.footer-logo:hover::after {
+    width: 100%;
+}
+
+.footer-logo span {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--secondary);
+    letter-spacing: 0.5px;
+}
+
+.footer-about p {
+    color: var(--gray);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* Social Icons */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(248, 200, 220, 0.1);
+    border-radius: 50%;
+    color: var(--primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Social Hover Effects */
+.social-links a:hover {
+    transform: translateY(-5px);
+}
+
+.social-links a[href*="instagram"]:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+}
+
+.social-links a[href*="linkedin"]:hover {
+    background-color: #0077b5;
+    color: white;
+}
+
+.social-links a i {
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover i {
+    transform: scale(1.2);
+}
+
+/* Links Section */
+.footer-links {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.footer-services,
+.footer-quick-links {
+    min-width: 150px;
+}
+
+.footer-links h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+    color: var(--primary);
+    display: inline-block;
+}
+
+.footer-links h3::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background-color: var(--accent);
+    bottom: -8px;
+    left: 0;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+/* --- STATIC LINK STYLES (No Arrows, No Shift) --- */
+.footer-links a {
+    color: var(--gray);
+    text-decoration: none;
+    display: inline-block;
+    /* Only transition the color */
+    transition: color 0.3s ease; 
+}
+
+/* On Hover: Just Change Color */
+.footer-links a:hover {
+    color: var(--primary);
+    /* No padding, no transform */
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid rgba(248, 200, 220, 0.1);
+    color: var(--gray);
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+.copyright p {
+    opacity: 0.8;
+}
+
+/* --- Animations --- */
+.footer-links li {
+    opacity: 0;
+    transform: translateX(-10px);
+    animation: fadeInRight 0.5s ease forwards;
+}
+
+.footer-links li:nth-child(1) { animation-delay: 0.1s; }
+.footer-links li:nth-child(2) { animation-delay: 0.2s; }
+.footer-links li:nth-child(3) { animation-delay: 0.3s; }
+.footer-links li:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .footer-about {
+        max-width: 100%;
+    }
+    
+    .footer-links {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 40px 0 20px;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .footer-services,
+    .footer-quick-links {
+        min-width: 100%;
+    }
+    
+    .footer-content {
+        margin-bottom: 30px;
+    }
+    
+    .copyright {
+        padding-top: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-logo {
+        font-size: 20px;
+    }
+    
+    .social-links {
+        gap: 10px;
+    }
+    
+    .social-links a {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .footer-links h3 {
+        font-size: 1.1rem;
+    }
+    
+    .footer-links li {
+        margin-bottom: 8px;
+    }
+    
+    .copyright {
+        font-size: 0.8rem;
+    }
+}
+
+/* Smooth scroll */
+.footer-links a[href^="#"] {
+    scroll-behavior: smooth;
+}

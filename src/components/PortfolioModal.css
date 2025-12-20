@@ -1,0 +1,331 @@
+/* =======================================================
+   COMPACT PORTFOLIO MODAL (Fits Screen, No Page Scroll)
+   ======================================================= */
+
+.portfolio-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Vertically Center */
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 20px; /* Small buffer from screen edges */
+}
+
+.portfolio-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: var(--dark-gray);
+    border-radius: 15px;
+    width: 100%;
+    max-width: 950px; /* Slightly wider to allow side-by-side to breathe */
+    
+    /* CRITICAL: Fit within screen height */
+    max-height: 90vh; 
+    /* We aim for no scrolling, but keep auto as a fallback for tiny screens */
+    overflow-y: auto; 
+    
+    padding: 25px; /* Reduced padding */
+    position: relative;
+    box-shadow: 0 20px 50px rgba(248, 200, 220, 0.2);
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.9);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hide scrollbar on the main modal content if it appears */
+.modal-content::-webkit-scrollbar { display: none; }
+.modal-content { -ms-overflow-style: none; scrollbar-width: none; }
+
+
+.portfolio-modal.active .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Close Button */
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.2rem;
+    color: var(--dark-gray);
+    background: var(--primary);
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(253, 77, 150, 0.2);
+    transition: all 0.2s;
+}
+
+.close-modal:hover {
+    background-color: rgba(246, 90, 155, 0.1);
+    transform: rotate(90deg);
+    background: var(--accent);
+}
+
+/* Header - Compacted */
+.modal-header {
+    margin-bottom: 15px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.modal-header h2 {
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin-bottom: 5px;
+    line-height: 1.1;
+}
+
+.modal-header p {
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+/* ============================
+   The Grid Layout (Left Media | Right Text)
+   ============================ */
+.modal-body.stacked-layout {
+    display: grid;
+    /* LEFT: Fixed width | RIGHT: Flexible space */
+    grid-template-columns: 340px 1fr; 
+    gap: 25px;
+    /* Important: makes both columns match height */
+    align-items: stretch; 
+    height: 100%;
+    overflow: hidden; /* Prevent body scroll */
+}
+
+/* ============================
+   LEFT: Media Section (Video or Image)
+   ============================ */
+.modal-media-section {
+    width: 100%;
+    height: 100%;
+    min-height: 400px; /* Ensure it has substantial height to match right side */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #000;
+}
+
+/* 1. Image Container */
+.modal-featured-image-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-featured-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* 2. Video Player Integration */
+.modal-featured-video {
+    width: 100%;
+    height: 100%;
+}
+
+/* Ensure the wrapper inside CustomVideoPlayer fits perfectly */
+.modal-featured-video .cvp-wrapper {
+    height: 100% !important;
+    width: 100% !important;
+    aspect-ratio: auto !important; /* Let flex stretch fill it */
+    border-radius: 12px;
+}
+
+/* ============================
+   RIGHT: Details (Compacted to fit without scroll)
+   ============================ */
+.modal-details-right {
+    display: flex;
+    flex-direction: column;
+    /* Distribute space evenly, pushing results to bottom */
+    justify-content: space-between; 
+    height: 100%;
+    overflow: hidden; /* Disable internal scrolling */
+}
+
+/* Section Headings (Services/Results) */
+.modal-details-right h3,
+.results h4 {
+    color: var(--accent);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-block;
+}
+
+.modal-details-right h3 {
+     border-bottom: 1px solid rgba(248, 200, 220, 0.2);
+     padding-bottom: 5px;
+}
+
+/* Services List - Compacted */
+.services-list {
+    list-style: none;
+    margin-bottom: 15px;
+    padding: 0;
+}
+
+.services-list li {
+    /* Tighter padding */
+    padding: 4px 0 4px 22px; 
+    border-bottom: 1px solid rgba(248, 200, 220, 0.05);
+    color: var(--gray);
+    position: relative;
+    font-size: 0.9rem;
+    line-height: 1.3;
+}
+
+.services-list li:before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: bold;
+    top: 4px;
+    font-size: 0.8rem;
+}
+
+/* Testimonial Box - Compacted */
+.testimonial {
+    background-color: rgba(248, 200, 220, 0.05);
+    padding: 18px;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    border-left: 2px solid var(--accent);
+}
+
+.testimonial p {
+    font-style: italic;
+    margin-bottom: 5px;
+    color: #fff;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    /* Clamp to max 3 lines to prevent overflow */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.client {
+    font-weight: 600;
+    color: var(--primary);
+    text-align: right;
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+/* Results Grid - Compacted & Hover Added */
+.results {
+    margin-top: 15px; /* Push to bottom */
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px; /* Tighter gap */
+}
+
+.result-item {
+    text-align: center;
+    padding: 10px 5px; /* Reduced padding */
+    background-color: var(--primary);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+/* --- NEW: HOVER EFFECT ON RESULT BLOCKS --- */
+.result-item:hover {
+    /* Use theme primary color with transparency */
+    background-color: var(--accent);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(103, 103, 103, 0.2);
+}
+
+.result-value {
+    font-size: 1.2rem; /* Smaller font */
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin-bottom: 2px;
+    line-height: 1;
+}
+
+.result-label {
+    font-size: 0.75rem; /* Smaller font */
+    color: var(--dark-gray);
+    line-height: 1.2;
+}
+
+/* ============================
+   Responsive Adjustments
+   ============================ */
+
+/* Tablet & Mobile: Stack Vertically & Allow Scroll */
+@media (max-width: 850px) {
+    .modal-content {
+        max-height: 95vh;
+        overflow-y: auto; /* Enable scroll on small screens */
+        padding: 20px;
+        display: block; 
+    }
+    
+    /* Re-enable scrollbars for mobile usage */
+    .modal-content::-webkit-scrollbar { display: block; width: 5px; }
+    .modal-content::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px;}
+
+    .modal-body.stacked-layout {
+        display: block; 
+        height: auto;
+        overflow: visible;
+    }
+
+    /* Media Section on Mobile */
+    .modal-media-section {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        max-height: 350px; /* Limit height on mobile */
+        margin-bottom: 20px;
+        aspect-ratio: 16/9; /* Force aspect ratio on mobile stack */
+    }
+    
+    .modal-details-right {
+        height: auto;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+}

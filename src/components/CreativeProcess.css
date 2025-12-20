@@ -1,0 +1,152 @@
+/* Section Base */
+.process-section {
+    padding: 100px 0;
+    background-color: var(--dark, #000);
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- Header Styling (With Pink Underline) --- */
+.process-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 70px;
+}
+
+.process-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--primary); /* White text */
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+}
+
+/* The Pink Line */
+.process-header h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary, #f8c8dc);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.process-header p {
+    font-size: 1.1rem;
+    color: var(--gray, #b0b0b0);
+    line-height: 1.6;
+}
+
+/* --- The Grid Layout --- */
+.process-grid {
+    display: grid;
+    /* Creates a responsive grid. 
+       On large screens: 3 columns. 
+       On tablets: 2 columns. 
+       On mobile: 1 column. */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 10px;
+}
+
+/* --- Card Styling --- */
+.process-card {
+    position: relative;
+    background-color: #202020; /* Very dark grey card background */
+    border: 1px solid #222;
+    border-radius: 20px;
+    padding: 40px 30px;
+    overflow: hidden; /* Clips the large number */
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-height: 320px;
+}
+
+/* Hover Effect: Lift & Glow */
+.process-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(255, 196, 233, 0.5);
+}
+
+/* --- Large Background Number (Watermark) --- */
+.card-bg-number {
+    position: absolute;
+    top: -15px;
+    right: 10px;
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03); /* Extremely subtle */
+    z-index: 0;
+    font-family: sans-serif;
+    line-height: 1;
+    pointer-events: none;
+    transition: color 0.3s ease;
+}
+
+.process-card:hover .card-bg-number {
+    color: rgba(254, 172, 206, 0.08); /* Slightly pink on hover */
+}
+
+/* --- Card Content --- */
+.card-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Icon Styling */
+.icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: rgba(40, 40, 40, 0.5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    border: 1px solid #333;
+    transition: background 0.3s ease;
+}
+
+.process-card:hover .icon-wrapper {
+    background: rgba(248, 200, 220, 0.1);
+    border-color: var(--accent);
+}
+
+.process-card h3 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.process-card p {
+    font-size: 0.95rem;
+    color: #aaa;
+    line-height: 1.6;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .process-header h2 {
+        font-size: 2rem;
+    }
+    
+    .process-grid {
+        gap: 20px;
+    }
+    
+    .process-card {
+        padding: 30px 20px;
+        min-height: auto;
+    }
+    
+    .card-bg-number {
+        font-size: 6rem;
+    }
+}
