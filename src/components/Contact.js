@@ -66,8 +66,8 @@ const Contact = React.forwardRef((props, ref) => {
             <div className="contact-item">
               <div className="contact-icon"><i className="fas fa-map-marker-alt"></i></div>
               <div className="contact-details">
-                <h3>Social Media</h3>
-                <p>@socialuplift.in</p>
+                <h3>Address</h3>
+                <p>Alt F Coworking, Sector 62, Noida</p>
               </div>
             </div>
           </div>
