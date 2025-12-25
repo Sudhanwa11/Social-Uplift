@@ -90,7 +90,7 @@ export const portfolioData = [
   // -------------------------------
   {
     id: 'lumos-cafe',
-    title: 'Lumos Cafe',
+    title: 'Cafe Lumos',
     subtitle: 'Gen Z Focused Marketing Campaign',
     description:
       'Marketing & PR services with a strong focus on creative social media management, engaging events, and impactful brand storytelling.',

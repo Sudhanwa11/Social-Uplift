@@ -7,7 +7,7 @@ const Contact = React.forwardRef((props, ref) => {
   const [error, setError] = useState("");
 
   // Your Web3Forms Access Key
-  const ACCESS_KEY = "5a6e21ad-dc28-4895-8e24-5b06b48d4638";
+  const ACCESS_KEY = "bcd47fac-53a0-4866-a123-7cdc6a2e8099";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -60,7 +60,7 @@ const Contact = React.forwardRef((props, ref) => {
               <div className="contact-icon"><i className="fas fa-envelope"></i></div>
               <div className="contact-details">
                 <h3>Email</h3>
-                <p>info@socialuplift.in</p>
+                <p>socialuplift.in@gmail.com</p>
               </div>
             </div>
             <div className="contact-item">
