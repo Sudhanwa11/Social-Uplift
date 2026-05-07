@@ -22,13 +22,13 @@ const Portfolio = React.forwardRef(({ openModal }, ref) => {
            speed={60}  -> Normal Slow
            speed={80}  -> Very Slow & Elegant (Recommended)
         */}
-        <PortfolioScroller speed={80}>
+        <PortfolioScroller speed={30}>
           {portfolioData.map((client) => {
             const hasImage = !!client.image;
 
             const clientsUsingBackgroundCover = [
               "nior-cafe", "lumos-cafe", "jain-life", "doshi-design",
-              "how-patio", "infinite-proptech", "girls-flavour", 
+              "how-patio", "infinite-proptech", "girls-flavour", "adige-dosa-house", "budget-bar", "finns-cafe", "sparkling-stars", "bluva", "cinnamon-kitchen", "cinnamon-courtyard", "lord-of-foods"
             ];
 
             const imageStyle = {};
@@ -41,9 +41,9 @@ const Portfolio = React.forwardRef(({ openModal }, ref) => {
               imageStyle.backgroundSize = "cover";
 
               if (client.id === "girls-flavour") {
-                 imageStyle.backgroundSize = "contain";
-                 imageStyle.backgroundOrigin = "content-box"; 
-                 imageStyle.padding = "10px"; 
+                imageStyle.backgroundSize = "contain";
+                imageStyle.backgroundOrigin = "content-box";
+                imageStyle.padding = "10px";
               }
 
               if (client.id === "lumos-cafe") containerBgColor = "#f8c8dc";
@@ -58,7 +58,7 @@ const Portfolio = React.forwardRef(({ openModal }, ref) => {
                 onClick={() => openModal(client.id)}
                 // Fixed dimensions ensuring consistency
                 style={{
-                  width: "320px", 
+                  width: "320px",
                   height: "100%",
                   flexShrink: 0
                 }}
@@ -103,7 +103,7 @@ const Portfolio = React.forwardRef(({ openModal }, ref) => {
                       <CardItem
                         as="p"
                         translateZ={15}
-                        className="text-gray-400 mb-4 text-sm"
+                        className="text-gray-400 mb-4 text-sm min-h-[80px]"
                       >
                         {client.description}
                       </CardItem>

@@ -3,16 +3,16 @@ import React from "react";
 // 'speed' now represents DURATION in seconds. 
 // Higher number = Slower speed (e.g., 60 = 60 seconds to loop once).
 const PortfolioScroller = ({ children, speed = 60 }) => {
-  
+
   // Flatten children to map them easily
   const originalItems = React.Children.toArray(children);
 
   return (
-    <div 
-      className="pf-scroll-wrapper" 
-      style={{ 
-        overflow: "hidden", 
-        width: "100%", 
+    <div
+      className="pf-scroll-wrapper"
+      style={{
+        overflow: "hidden",
+        width: "100%",
         padding: "20px 0",
         position: "relative",
         // Pass the speed prop as a CSS variable for the animation duration
@@ -35,14 +35,14 @@ const PortfolioScroller = ({ children, speed = 60 }) => {
         {/* RENDER 2 SETS FOR SEAMLESS LOOP */}
         {[0, 1].map((setIndex) => (
           <React.Fragment key={`set-${setIndex}`}>
-            {originalItems.map((child, i) => 
-              React.cloneElement(child, { 
+            {originalItems.map((child, i) =>
+              React.cloneElement(child, {
                 key: `set${setIndex}-${i}`,
                 // We use margin-right on items instead of gap on parent
                 // This ensures the total width calculation for the loop is pixel-perfect
                 style: {
                   ...child.props.style,
-                  marginRight: "32px", 
+                  marginRight: "32px",
                 }
               })
             )}
