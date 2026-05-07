@@ -1,0 +1,137 @@
+/* GradientBlinds Component Styles */
+
+.gradient-blinds-container {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.gradient-blinds-container canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Container states for different blend modes */
+.gradient-blinds-container.lighten {
+    mix-blend-mode: lighten;
+}
+
+.gradient-blinds-container.darken {
+    mix-blend-mode: darken;
+}
+
+.gradient-blinds-container.multiply {
+    mix-blend-mode: multiply;
+}
+
+.gradient-blinds-container.screen {
+    mix-blend-mode: screen;
+}
+
+.gradient-blinds-container.overlay {
+    mix-blend-mode: overlay;
+}
+
+.gradient-blinds-container.color-dodge {
+    mix-blend-mode: color-dodge;
+}
+
+/* Error state styling */
+.gradient-blinds-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(248, 200, 220, 0.1), rgba(82, 39, 255, 0.05));
+    color: var(--primary);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(248, 200, 220, 0.2);
+}
+
+.gradient-blinds-error i {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+/* Loading state */
+.gradient-blinds-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(248, 200, 220, 0.05), rgba(82, 39, 255, 0.03));
+}
+
+.gradient-blinds-loading::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(248, 200, 220, 0.2);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: gradient-blinds-spin 1s linear infinite;
+}
+
+@keyframes gradient-blinds-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+    .gradient-blinds-container canvas {
+        animation: none !important;
+    }
+    
+    .gradient-blinds-loading::after {
+        animation: none;
+        border-top-color: rgba(248, 200, 220, 0.2);
+    }
+}
+
+/* Print styles - hide WebGL content when printing */
+@media print {
+    .gradient-blinds-container {
+        display: none;
+    }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .gradient-blinds-container {
+        /* Reduce rendering load on mobile */
+        -webkit-tap-highlight-color: transparent;
+        touch-action: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .gradient-blinds-container {
+        filter: contrast(1.2) saturate(1.1);
+    }
+}
+
+/* Dark mode adjustments (if needed) */
+@media (prefers-color-scheme: dark) {
+    .gradient-blinds-container {
+        filter: brightness(0.9) contrast(1.1);
+    }
+}
