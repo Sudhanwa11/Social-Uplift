@@ -47,35 +47,35 @@ import InfiniteImg02 from './assets/Infinite02.png';
 
 // --- ADIGE DOSA HOUSE Media ---
 import AdigeMainLogo from './assets/adigedosahouse_logo.jpeg';
-import AdigeVideo1 from './assets/adigedosahouse_vid.MP4';
+import AdigeVideo1 from './assets/adigedosahouse_vid.mp4';
 
 // --- BUDGET BAR Media ---
 import BudgetBarMainLogo from './assets/Budgetbar_logo.jpeg';
-import BudgetBarVideo1 from './assets/Budgetbar_vid.MP4';
+import BudgetBarVideo1 from './assets/Budgetbar_vid.mp4';
 
 // --- FINNS CAFE & DINE Media ---
 import FinnsCafeMainLogo from './assets/finnscafe&dine_logo.jpeg';
-import FinnsCafeVideo1 from './assets/finnscafe&dine_vid.MP4';
+import FinnsCafeVideo1 from './assets/finnscafe&dine_vid.mp4';
 
 // --- SPARKLING STARS Media ---
 import SparklingStarsMainLogo from './assets/sparklingstars_logo.jpeg';
-import SparklingStarsVideo1 from './assets/sparklingstars_vid.MP4';
+import SparklingStarsVideo1 from './assets/sparklingstars_vid.mp4';
 
 // --- BLUVA Media ---
 import BluvaMainLogo from './assets/bluva_logo.jpeg';
-import BluvaVideo1 from './assets/bluva_video.MP4';
+import BluvaVideo1 from './assets/bluva_video.mp4';
 
 // --- CINNAMON KITCHEN Media ---
 import CinnamonMainLogo from './assets/Cinnamonkitchen_logo.jpeg';
-import CinnamonVideo1 from './assets/Cinnamonkitchen_vid.MP4';
+import CinnamonVideo1 from './assets/Cinnamonkitchen_vid.mp4';
 
 // --- CINNAMON COURTYARD Media ---
 import CinnamonCourtyardMainLogo from './assets/CinnamonCourtYard_logo.jpeg';
-import CinnamonCourtyardVideo1 from './assets/CinnamonCourtYard_vid.MP4';
+import CinnamonCourtyardVideo1 from './assets/CinnamonCourtYard_vid.mp4';
 
 // --- LORD OF FOODS Media ---
 import LordOfFoodsMainLogo from './assets/LordofFoods_logo.jpeg';
-import LordOfFoodsVideo1 from './assets/LordofFoods_vid.MP4';
+import LordOfFoodsVideo1 from './assets/LordofFoods_vid.mp4';
 
 
 // =============================
